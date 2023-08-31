@@ -20,7 +20,7 @@ function Alert(props) {
 const AlertBar = ({ open, handleClose }) => (
   <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
     <Alert onClose={handleClose} severity="error">
-      Enter your name please!
+      Por favor, insira seu nome!
     </Alert>
   </Snackbar>
 );
@@ -45,7 +45,7 @@ const useStyles = makeStyles(() => ({
     padding: "3rem",
   },
   input: {
-    width: "350px",
+    width: "100%",
   },
 }));
 
@@ -86,19 +86,74 @@ const StartupPage = () => {
   return (
     <div className={classes.background}>
       <Paper className={classes.card} elevation={4}>
-        <h4>Jitsi Medium Demo</h4>
+        <h4>Olá, digite seu nome</h4>
         <ThemeProvider theme={theme}>
           <div style={{ marginBottom: "1.5rem" }}>
             <TextField
-              label="Name"
+              label="Seu nome"
               variant="outlined"
               color="default"
               className={classes.input}
               value={name}
               onChange={(e) => setName(e.target.value)}
+              
             />
           </div>
           <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
+            <h4>Entre em uma sala...</h4>
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                // if name is empty we mandate user to enter it as we also trigger to open snackbar here
+                if (name === "") {
+                  handleClick();
+                  return;
+                }
+
+                // if all goes well we will be redirecting the user to meet room
+                history.push(`/meet/MeetSala1`);
+              }}
+            >
+              Sala 1
+            </Button>
+            &nbsp;
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                // if name is empty we mandate user to enter it as we also trigger to open snackbar here
+                if (name === "") {
+                  handleClick();
+                  return;
+                }
+
+                // if all goes well we will be redirecting the user to meet room
+                history.push(`/meet/MeetSala2`);
+              }}
+            >
+              Sala 2
+            </Button>
+            &nbsp;
+            <Button
+              variant="contained"
+              color="default"
+              onClick={() => {
+                // if name is empty we mandate user to enter it as we also trigger to open snackbar here
+                if (name === "") {
+                  handleClick();
+                  return;
+                }
+
+                // if all goes well we will be redirecting the user to meet room
+                history.push(`/meet/MeetSala3`);
+              }}
+            >
+              Sala 3
+            </Button>
+          </div>
+          <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
+            <h4>...ou crie uma aleatória</h4>
             <Button
               variant="contained"
               color="default"
@@ -113,7 +168,7 @@ const StartupPage = () => {
                 history.push(`/meet/${generateString(7)}`);
               }}
             >
-              Create Meet
+              Criar sala aleatória
             </Button>
           </div>
         </ThemeProvider>

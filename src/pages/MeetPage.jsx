@@ -4,7 +4,7 @@ import { MeetContext } from "../context/MeetContext";
 
 const MeetPage = ({ match }) => {
   //AS OF NOW DOMAIN WOULD BE JITSI'S AS WE ARE STILL USING THIER SERVERS
-  const domain = "meet.jit.si";
+  const domain = "meet.resende.app";
   let api = {};
 
   const history = useHistory();
@@ -16,8 +16,6 @@ const MeetPage = ({ match }) => {
   const startMeet = useCallback(() => {
     const options = {
       roomName: match.params.id,
-      width: "100%",
-      height: 500,
       configOverwrite: { prejoinPageEnabled: false },
       interfaceConfigOverwrite: {
         // overwrite interface properties if you want
@@ -84,23 +82,23 @@ const MeetPage = ({ match }) => {
 
   return (
     <React.Fragment>
-      <header
+      {/* <header
         style={{
           backgroundColor: "rgb(10, 25, 41)",
           color: "white",
           textAlign: "center",
         }}
       >
-        <p style={{ margin: 0, padding: 10 }}>Meeting name</p>
-      </header>
-      <div id="jitsi-iframe" style={{ marginBottom: 0 }}></div>
-      <div
+        <p style={{ margin: 0, padding: 10 }}>{name}</p>
+      </header> */}
+      <div id="jitsi-iframe" style={{ display: "block", height: "100vh", border: "none", overflow: "hidden" }}></div>
+      {/* <div
         style={{
           backgroundColor: "rgb(10, 25, 41)",
           height: "20vh",
           margin: 0,
         }}
-      ></div>
+      ></div> */}
     </React.Fragment>
   );
 };

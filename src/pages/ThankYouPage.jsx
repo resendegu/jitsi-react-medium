@@ -47,11 +47,11 @@ const ThankYouPage = () => {
   return (
     <div className={classes.background}>
       <Paper className={classes.card} elevation={4}>
-        <h4>Thank You</h4>
+        <h4>Obrigado</h4>
         <ThemeProvider theme={theme}>
           <div style={{ marginBottom: "1.5rem" }}></div>
           <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
-            <p>You can go back home and create another meeting !</p>
+            <p>Você pode voltar e criar outra sala de reunião!</p>
             <Button
               variant="contained"
               color="default"
@@ -59,7 +59,7 @@ const ThankYouPage = () => {
                 history.push(`/`);
               }}
             >
-              Go Back Home
+              Voltar para o início
             </Button>
           </div>
         </ThemeProvider>
