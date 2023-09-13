@@ -4,7 +4,7 @@ export const MeetContext = createContext();
 
 export const MeetProvider = ({ children }) => {
   const nameStored = localStorage.getItem('name');
-  const [name, setName] = useState(nameStored);
+  const [name, setName] = useState(nameStored ? nameStored : '');
   localStorage.setItem('name', name);
   
   return (
