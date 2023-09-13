@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Paper,
   makeStyles,
@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import { MeetContext } from "../context/MeetContext";
 import MuiAlert from "@material-ui/lab/Alert";
 import { generateString } from "../helper/generateRandomString";
+import { generateRoomWithoutSeparator } from "../random/roomNameGenerator";
 
 // Alert when the user hasn't filled up their name
 function Alert(props) {
@@ -51,6 +52,14 @@ const useStyles = makeStyles(() => ({
 
 const StartupPage = () => {
   const classes = useStyles();
+
+  useEffect(() => {
+    const nameStored = localStorage.getItem('name');
+    if (nameStored) {
+      setName(nameStored);
+    }
+  }, [])
+  
 
   // we will be preferring dark theme for our page
   const theme = React.useMemo(
@@ -112,7 +121,7 @@ const StartupPage = () => {
                 }
 
                 // if all goes well we will be redirecting the user to meet room
-                history.push(`/meet/MeetSala1`);
+                history.push(`/meet/${window.location.hostname}Sala1`);
               }}
             >
               Sala 1
@@ -129,7 +138,7 @@ const StartupPage = () => {
                 }
 
                 // if all goes well we will be redirecting the user to meet room
-                history.push(`/meet/MeetSala2`);
+                history.push(`/meet/${window.location.hostname}Sala2`);
               }}
             >
               Sala 2
@@ -146,7 +155,7 @@ const StartupPage = () => {
                 }
 
                 // if all goes well we will be redirecting the user to meet room
-                history.push(`/meet/MeetSala3`);
+                history.push(`/meet/${window.location.hostname}Sala3`);
               }}
             >
               Sala 3
@@ -165,7 +174,7 @@ const StartupPage = () => {
                 }
 
                 // if all goes well we will be redirecting the user to meet room
-                history.push(`/meet/${generateString(7)}`);
+                history.push(`/meet/${window.location.hostname}${generateRoomWithoutSeparator()}`);
               }}
             >
               Criar sala aleatória

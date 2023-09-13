@@ -3,8 +3,10 @@ import React, { useState, createContext } from "react";
 export const MeetContext = createContext();
 
 export const MeetProvider = ({ children }) => {
-  const [name, setName] = useState("");
-
+  const nameStored = localStorage.getItem('name');
+  const [name, setName] = useState(nameStored);
+  localStorage.setItem('name', name);
+  
   return (
     <MeetContext.Provider value={[name, setName]}>
       {children}

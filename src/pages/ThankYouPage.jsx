@@ -51,7 +51,7 @@ const ThankYouPage = () => {
         <ThemeProvider theme={theme}>
           <div style={{ marginBottom: "1.5rem" }}></div>
           <div style={{ marginBottom: "1.5rem", textAlign: "center" }}>
-            <p>Você pode voltar e criar outra sala de reunião!</p>
+            <p>Você pode voltar e entrar em outra sala de reunião!</p>
             <Button
               variant="contained"
               color="default"
