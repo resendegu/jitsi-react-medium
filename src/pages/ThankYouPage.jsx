@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, makeStyles, Button } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
+import { getHint } from "../random/hints";
 
 // stylings for the page
 const useStyles = makeStyles(() => ({
@@ -15,12 +16,17 @@ const useStyles = makeStyles(() => ({
     colorScheme: "dark",
     flexDirection: "column",
   },
+  hint: {
+    fontSize: "0.9rem",
+    textAlign: "justify" 
+  },
   card: {
     backgroundColor: "rgb(0, 30, 60)",
     colorScheme: "dark",
     border: "1px solid rgb(19, 47, 76)",
     color: "white",
     padding: "3rem",
+    width: "340px",
   },
   input: {
     width: "350px",
@@ -61,6 +67,12 @@ const ThankYouPage = () => {
             >
               Voltar para o início
             </Button>
+          </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <h4>Você sabia?</h4>
+            <p className={classes.hint}>
+              <i>{getHint()}</i>
+            </p>
           </div>
         </ThemeProvider>
       </Paper>

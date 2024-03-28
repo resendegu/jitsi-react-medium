@@ -55,8 +55,10 @@ const StartupPage = () => {
 
   useEffect(() => {
     const nameStored = localStorage.getItem('name');
+    const emailStored = localStorage.getItem('email');
     if (nameStored) {
       setName(nameStored);
+      setEmail(emailStored);
     }
   }, [])
   
@@ -76,7 +78,7 @@ const StartupPage = () => {
   const history = useHistory();
 
   // will be using name across all pages from context
-  const [name, setName] = useContext(MeetContext);
+  const [name, setName, email, setEmail] = useContext(MeetContext);
 
   // state and handler function for the snackbar
   const [open, setOpen] = useState(false);
@@ -105,6 +107,17 @@ const StartupPage = () => {
               className={classes.input}
               value={name}
               onChange={(e) => setName(e.target.value)}
+              
+            />
+          </div>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <TextField
+              label="E-mail (opcional)"
+              variant="outlined"
+              color="default"
+              className={classes.input}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               
             />
           </div>

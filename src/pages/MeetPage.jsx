@@ -10,7 +10,7 @@ const MeetPage = ({ match }) => {
   const history = useHistory();
 
   // THIS IS TO EXTRACT THE NAME WHICH WAS FILLED IN THE FIRST PAGE
-  const [name] = useContext(MeetContext);
+  const [name, setName, email, setEmail] = useContext(MeetContext);
 
   // INTIALISE THE MEET WITH THIS FUNCTION
   const startMeet = useCallback(() => {
@@ -24,6 +24,7 @@ const MeetPage = ({ match }) => {
       parentNode: document.querySelector("#jitsi-iframe"),
       userInfo: {
         displayName: name,
+        email: email,
       },
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
